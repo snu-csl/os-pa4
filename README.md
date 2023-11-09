@@ -151,7 +151,7 @@ Note that we don't change anything about the other memory regions, such as code,
 
 ### 4. No memory leaks (10 points)
 
-In order to get full credit for this project, you need to make sure there is no memory leak in your implementation. In the skeleton code, we have added three global variables called `freemem`, `used4k`, and `used2m`. The value of `freemem` indicates the amount of free physical memory in 4KiB, i.e., `freemem` = 10000 denotes that 40960 bytes of physical memory are free at that moment. The `used4k` and `used2m` variables represent the number of allocated 4KiB frames and 2MiB frames, respectively. You should update these values correctly in your implementation. The physical memory size is configured to 128MiB in `xv6` by default (`PHYSTOP` @ `kernel/memlayout.h`). Therefore, at any moment, the following equation should hold:
+In order to get full credit for this project, you need to make sure there is no memory leak in your implementation. In the skeleton code, we have added three global variables called `freemem`, `used4k`, and `used2m`. The value of `freemem` indicates the amount of free physical memory in 4KiB, i.e., `freemem` = 100 denotes that 409600 bytes of physical memory are free at that moment. The `used4k` and `used2m` variables represent the number of allocated 4KiB frames and 2MiB frames, respectively. You should update these values correctly in your implementation. The physical memory size is configured to 128MiB in `xv6` by default (`PHYSTOP` @ `kernel/memlayout.h`). Therefore, at any moment, the following equation should hold:
 ```
 freemem = (128MiB / 4KiB) - used4k - (512 * used2m)
 ```
