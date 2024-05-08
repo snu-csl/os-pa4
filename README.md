@@ -76,6 +76,7 @@ You need to prepare and submit the design document (in a single PDF file) for yo
 * For this project assignment, you can assume a uniprocessor RISC-V system (`CPUS` = 1) with a physical memory size of 128 MiB.
 * You can assume that a single page frame can be shared by up to 16 different virtual pages, except for the zero-page. There is no limit on the number of virtual pages that can share the zero-page.
 * When performing `ksm()`, exclude the page frames used by `init` process (pid 1), the `sh` process (pid 2), and the process invoking the `ksm()` system call itself from scanning. Assume that the shell process always runs with pid 2.
+* Duplicated page frames are merged only through the `ksm()` system call; they should not be merged at the time of page allocation.
 * There should be no memory leak. The `freemem` value should remain identical before and after executing a program. 
 * Please use the `qemu` version 8.2.0 or later. To determine the `qemu` version, use the command: `$ qemu-system-riscv64 --version`
 * We will run `qemu-system-riscv64` with the `-icount shift=0` option, which enables aligning the host and virtual clocks. This setting is already included in the `Makefile` for the `pa4` branch.
