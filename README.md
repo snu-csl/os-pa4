@@ -92,7 +92,7 @@ $ git checkout pa4
 ```
 
 After downloading, you must first set your `STUDENTID` in the `Makefile` again.
-The `pa4` branch includes a ksm daemon program called `ksmd`, and three user-level programs called `ksm1`, `ksm2`, and `ksm3`, whose source code is available in `./user/ksmd.c`, `./user/ksm1.c`, `./user/ksm2.c`, and `./user/ksm3.c`. 
+The `pa4` branch includes a ksm daemon program called `ksmd`, and three user-level programs called `ksm1`, `ksm2`, and `ksm3`, whose source code is available in `./user/ksmd.c`, `./user/ksm1.c`, `./user/ksm2.c`, and `./user/ksm3.c`, respectively.
 
 The `ksmd` program is responsible for invoking the `ksm()` system call at regular intervals, typically every 5 ticks (Note: this interval can be adjusted during actual tests.). It then prints the number of scanned and merged page frames, as well as the `freemem` information. The skeleton code already tracks the `freemem` value by incrementing or decrementing it by one for every `kalloc()` or `kfree()` function call within the kernel. Therefore, you can directly use this value as the return value of the `ksm()` system call. 
 
