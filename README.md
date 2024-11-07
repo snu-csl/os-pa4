@@ -324,7 +324,7 @@ The `swaptest` program itself also calls the `memstat()` system call at the star
 Currently, the `swaptest` program appears to be running without any issues. However, at the moment, `swaptest` is using physical memory from `ZONE_FIXED`. You need to modify this so that it uses `ZONE_NORMAL`, and when memory in `ZONE_NORMAL` is insufficient, it should utilize `ZONE_ZMEM` as swap space. 
 
 ```
-qemu-system-riscv64 -machine virt -bios none -kernel kernel/kernel -m 128M -smp 3 -nographic -global virtio-mmio.force-legacy=false -drive file=fs.img,if=none,format=raw,id=x0 -device virtio-blk-device,drive=x0,bus=virtio-mmio-bus.0
+qemu-system-riscv64 -machine virt -bios none -kernel kernel/kernel -m 128M -smp 1 -nographic -global virtio-mmio.force-legacy=false -drive file=fs.img,if=none,format=raw,id=x0 -device virtio-blk-device,drive=x0,bus=virtio-mmio-bus.0
 
 xv6 kernel is booting
 
@@ -356,7 +356,7 @@ $ QEMU: Terminated                                                         <-- c
 The following is an example output when you have successfully implemented all the requirements of this project. Note that the starting address of the `ZONE_FIXED` area may vary depending on the amount of static data allocated to the kernel.
 
 ```
-qemu-system-riscv64 -machine virt -bios none -kernel kernel/kernel -m 128M -smp 3 -nographic -global virtio-mmio.force-legacy=false -drive file=fs.img,if=none,format=raw,id=x0 -device virtio-blk-device,drive=x0,bus=virtio-mmio-bus.0
+qemu-system-riscv64 -machine virt -bios none -kernel kernel/kernel -m 128M -smp 1 -nographic -global virtio-mmio.force-legacy=false -drive file=fs.img,if=none,format=raw,id=x0 -device virtio-blk-device,drive=x0,bus=virtio-mmio-bus.0
 
 xv6 kernel is booting
 
