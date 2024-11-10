@@ -275,15 +275,15 @@ The skeleton code also includes two additional system calls, `ktest1()`, and `kt
 Prepare a design document detailing your implementation in a single PDF file. Your document should include the following sections:
 
 1. New data structures
-  * Describe any new data structures introduced.
-  * Explain why these data structures were necessary and how they contribute to the implementation.
+   * Describe any new data structures introduced.
+   * Explain why these data structures were necessary and how they contribute to the implementation.
 2. Algorithm design
-  * Provide an overview of the overall flow of the `swapin()` and `swapout()` functions.
-  * Describe any corner cases you considered and the strategies you used to address them.
-  * Discuss any optimizations you applied to improve code efficiency, both in terms of time and space.
+   * Provide an overview of the overall flow of the `swapin()` and `swapout()` functions.
+   * Describe any corner cases you considered and the strategies you used to address them.
+   * Discuss any optimizations you applied to improve code efficiency, both in terms of time and space.
 3. Testing and validation
-  * Outline the test cases you created to validate your implementation, if any.
-  * Describe how you verified the correct handling of the corner cases mentioned in Section 2.
+   * Outline the test cases you created to validate your implementation, if any.
+   * Describe how you verified the correct handling of the corner cases mentioned in Section 2.
 
 ### **Bonus** (up to an additional 20 points)
 
