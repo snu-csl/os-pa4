@@ -214,7 +214,7 @@ The current values of these variables are displayed when you press `ctrl-x` on `
 Additionally, the skeleton code defines two variables, `nswapin` and `nswapout`, which count the number of swap-ins and swap-outs, respectively.
 These counters will be used in Part 2 to monitor swap activity. 
 
-We introduce a new system call named `memstat()` (located in `./kernel/xswap.c`) that returns the values of these values, as shown below.
+We introduce a new system call named `memstat()` (located in `./kernel/xswap.c`) that returns the values of these variables, as shown below.
 Please complete the implementation of the `memstat()` system call. For Part 1, `nswapin` and `nswapout` can be left as zero.
 
 __SYNOPSYS__
