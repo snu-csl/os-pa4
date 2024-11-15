@@ -353,7 +353,9 @@ $ total: 0, nalloc4k: 0, zalloc4k: 0, zalloc2k: 0, swapin: 0, swapout: 0   <-- c
 $ QEMU: Terminated                                                         <-- ctrl-a x
 ```
 
-The following is an example output when you have successfully implemented all the requirements of this project. Note that the starting address of the `ZONE_FIXED` area may vary depending on the amount of static data allocated to the kernel.
+The following is an example output when you have successfully implemented all the requirements of this project. Note that
+- the starting address of the `ZONE_FIXED` area may vary depending on the amount of static data allocated to the kernel.
+- the exact values of `zalloc4k` and `zalloc2k` may vary, but their sum must be the same.
 
 ```
 qemu-system-riscv64 -machine virt -bios none -kernel kernel/kernel -m 128M -smp 1 -nographic -global virtio-mmio.force-legacy=false -drive file=fs.img,if=none,format=raw,id=x0 -device virtio-blk-device,drive=x0,bus=virtio-mmio-bus.0
