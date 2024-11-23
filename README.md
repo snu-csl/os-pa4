@@ -418,7 +418,7 @@ $ QEMU: Terminated                                                              
 
 * First, make sure you are on the `pa4` branch in your `xv6-riscv-snu` directory. And then perform the `make submit` command to generate a compressed tar file named `xv6-{PANUM}-{STUDENTID}.tar.gz` in the `../xv6-riscv-snu` directory. Upload this file to the submission server. Additionally, your design document should be uploaded as the report for this project assignment.
 
-* The total number of submissions for this project assignment will be limited to 30. Only the version marked as `FINAL` will be considered for the project score. Please remember to designate the version you wish to submit using the `FINAL` button.
+* The total number of submissions for this project assignment will be limited to 50. Only the version marked as `FINAL` will be considered for the project score. Please remember to designate the version you wish to submit using the `FINAL` button.
 
 * The `sys` server will no longer accept submissions after three days (72 hours) past the deadline.
   
