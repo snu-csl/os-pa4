@@ -195,7 +195,13 @@ Along with your code, submit a design document in a single PDF file. Your docume
 * For Part 1 and 2, you may assume that `xv6` is running on a single-hart system (i.e., `CPUS := 1` in `Makefile`).
 * For Part 1, we will run your code without any special compiler options. For Part 2 and 3, however, we will use the `-DSWAP` compiler flag. Therefore, please enclose any code modifications for Part 2 and 3 within the `#ifdef SWAP` and `#endif` macros.
 * For the bonus, we will use the `-DBONUS` compiler flag along with `-DSWAP` to verify whether your code works correctly on a multi-hart system.
-* Any attempt to circumvent the design will incur penalties. Examples include (but are not limited to): failing to reclaim the corresponding swap slot after a swap-in, servicing code-page faults by reading directly from the file instead of performing proper swap-out/swap-in, or intentionally tampering with paging statistics. 
+* On swap-in, the swap slot is freed immediately. Each allocated swap slot is owned by exactly one PTE and must never be referenced by more than one PTE. Similarly, each allocated user page frame is owned by exactly one PTE and must never be shared by more than one PTE. 
+* Any attempt to artificially reduce swap-in/swap-out activity will incur penalties. Our goal is to make swap-in/swap-out counts be affected only by the page replacement policy. Examples include (but are not limited to):
+  * Failing to reclaim the corresponding swap slot after a swap-in.
+  * Servicing code-page faults by reading directly from the file instead of performing proper swap-out/swap-in.
+  * Reading directly from a parent's swap slot into a child's page frame during `fork()`.
+  * Simply discarding unmodified, zero-filled heap pages and reinitializing them later without performing the required swap-out/swap-in.
+  * Intentionally tampering with paging statistics, etc.
 * Please use `qemu` version 8.2.0 or later. To check your `qemu` version, run: `$ qemu-system-riscv64 --version`
 * You are required to modify only the files in the `./kernel` directory. Any other changes will be ignored during grading.
 
