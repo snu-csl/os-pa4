@@ -203,16 +203,7 @@ Along with your code, submit a design document in a single PDF file. Your docume
   * Simply discarding unmodified, zero-filled heap pages and reinitializing them later without performing the required swap-out/swap-in.
   * Intentionally tampering with paging statistics, etc.
 * Please use `qemu` version 8.2.0 or later. To check your `qemu` version, run: `$ qemu-system-riscv64 --version`
-* You are required to modify only the files in the `./kernel` directory. Any other changes will be ignored during grading.
-
-## Tips
-
-* You can repurpose the RSW field (PTE bits 9-8) to store software state. For example, use one bit to mark that a page is swapped out.
-* QEMU emulates the PTE's (Access) and D (Dirty) bits, so you can sample them to infer recent references and writes when designing your own replacement policy.
-  
-* Read Chap. 3 and 5 of the [xv6 book](http://csl.snu.ac.kr/courses/4190.307/2025-2/book-riscv-rev5.pdf) to understand the virtual memory subsystem and page-faults in `xv6`.
-  
-* For your reference, the following roughly shows the required code changes; each `+` denotes about 1~10 lines to add, remove, or modify.
+* You are required to modify only the files listed below. Any other changes will be ignored during grading.
    ```
    kernel/defs.h        |  ++
    kernel/exec.c        |  ++
@@ -226,6 +217,12 @@ Along with your code, submit a design document in a single PDF file. Your docume
    kernel/trap.c        |  +
    kernel/vm.c          |  ++++
    ```
+## Tips
+
+* You can repurpose the RSW field (PTE bits 9-8) to store software state. For example, use one bit to mark that a page is swapped out.
+* QEMU emulates the PTE's (Access) and D (Dirty) bits, so you can sample them to infer recent references and writes when designing your own replacement policy.
+  
+* Read Chap. 3 and 5 of the [xv6 book](http://csl.snu.ac.kr/courses/4190.307/2025-2/book-riscv-rev5.pdf) to understand the virtual memory subsystem and page-faults in `xv6`.
 
 ## Skeleton Code
 
