@@ -166,7 +166,7 @@ Full credit (20 points) requires passing quick usertests (`usertests -q`) on a m
 If your implementation meets all Part 3 requirements, you may earn up to 20 bonus points by designing and integrating your own page replacement policy that minimizes page faults on workloads exhibiting memory-access locality. Your policy should plug cleanly into your per-process paging implementation and remain correct, deadlock-free, and leak-free under the same testing conditions as Part 3.
 You may track lightweight per-page metadata and/or maintain auxiliary state, provided overhead stays modest and the design is cleanly explained in your design document. 
 
-For a diverse set of workloads, we will rank submissions by the total number of page faults (lower is better) across all workloads. The top 10 submissions will receive a 20% bonus, and the next 10 submissions will receive a 10% bonus.
+For a diverse set of workloads, we will rank submissions by the average ratio of page faults (lower is better) across all workloads, specifically using the geometric mean of each workload’s page-fault ratio relative to the FIFO policy. The top 10 submissions will receive a 20% bonus, and the next 10 submissions will receive a 10% bonus.
 To qualify for this bonus, wrap any code changes with `#ifdef BONUS  ... #endif` and document the policy's mechanics, rationale, and expected behavior in your design document.
 
 ### Part 4. Design Document (10 points)
@@ -202,6 +202,10 @@ Along with your code, submit a design document in a single PDF file. Your docume
   * Reading directly from a parent's swap slot into a child's page frame during `fork()`.
   * Simply discarding unmodified, zero-filled heap pages and reinitializing them later without performing the required swap-out/swap-in.
   * Intentionally tampering with paging statistics, etc.
+* Do not change the allocation order, deallocation order, access order, or modification order of user pages inside every syscall in skeleton code.
+* When handling a system call, if there are user pages that were swapped out, the kernel must not incrementally enforce the quota during the syscall. Instead, it must first read in all such pages, and enforce the quota only once after all required user page accesses have finished(right before returning from the syscall).
+* The quota set by the rss_set() system call may vary, but it must not exceed 400.
+* The line starting with "#define DEFAULT_RSS_QUOTA" must appear in proc.h. The value of DEFAULT_RSS_QUOTA may change, but it must not exceed 20.
 * Please use `qemu` version 8.2.0 or later. To check your `qemu` version, run: `$ qemu-system-riscv64 --version`
 * You are required to modify only the files listed below. Any other changes will be ignored during grading.
    ```
