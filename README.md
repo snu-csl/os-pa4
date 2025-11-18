@@ -204,6 +204,7 @@ Along with your code, submit a design document in a single PDF file. Your docume
   * Intentionally tampering with paging statistics, etc.
 * Do not change the allocation order, deallocation order, access order, or modification order of user pages inside every syscall in skeleton code.
 * When handling a system call, if there are user pages that were swapped out, the kernel must not incrementally enforce the quota during the syscall. Instead, it must first read in all such pages, and enforce the quota only once after all required user page accesses have finished(right before returning from the syscall).
+* exec() does not clear the statistics for faults, swap-ins, or swap-outs.
 * The quota set by the rss_set() system call may vary, but it must not exceed 400.
 * The line starting with "#define DEFAULT_RSS_QUOTA" must appear in proc.h. The value of DEFAULT_RSS_QUOTA may change, but it must not exceed 20.
 * Please use `qemu` version 8.2.0 or later. To check your `qemu` version, run: `$ qemu-system-riscv64 --version`
