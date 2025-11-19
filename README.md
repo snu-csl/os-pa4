@@ -206,6 +206,7 @@ Along with your code, submit a design document in a single PDF file. Your docume
 * When handling a system call, if there are user pages that were swapped out, the kernel must not incrementally enforce the quota during the syscall. Instead, it must first read in all such pages, and enforce the quota only once after all required user page accesses have finished(right before returning from the syscall).
 * Only page faults triggered by memory accesses in user mode, resulting in a user trap, shall be counted as “faults” in rss_stats(). Page-ins of user pages performed as part of a system call must not be counted.
 * exec() does not clear the statistics for faults, swap-ins, or swap-outs.
+* In the rss_stat() syscall, the swapins and swapouts values returned to the user buffer must not include any swap-in or swap-out operations that occur inside the execution of the rss_stat() syscall itself (i.e., swapping caused by accessing the user buffer passed to rss_stat()).
 * The quota set by the rss_set() system call may vary, but it must not exceed 400.
 * The line starting with "#define DEFAULT_RSS_QUOTA" must appear in proc.h. The value of DEFAULT_RSS_QUOTA may change, but it must not exceed 20.
 * Please use `qemu` version 8.2.0 or later. To check your `qemu` version, run: `$ qemu-system-riscv64 --version`
