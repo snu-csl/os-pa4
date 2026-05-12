@@ -239,8 +239,8 @@ Submissions will be ranked by the amount of memory used by the kernel for COW-re
 Specifically, we will consider both the value of `freemem` when the initial `sh` process starts and the minimum value of `freemem` observed while running a benchmark that stresses the Part 3 implementation. This prevents implementations from appearing memory-efficient at boot time while allocating large COW metadata structures later during execution.
 
 Bonus points will be awarded as follows:
-* The top 10% of eligible submissions will receive a 10% bonus.
-* The next 10% of eligible submissions will receive a 5% bonus.
+* The top 10 eligible submissions will receive a 10% bonus.
+* The next 10 eligible submissions will receive a 5% bonus.
 
 Only submissions that pass the required tests are eligible for the bonus. Implementations must remain correct, race-free, and leak-free. Reducing memory usage by breaking correctness, omitting required functionality, or hiding allocations from the accounting mechanism will not be considered valid for the bonus.
  
