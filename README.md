@@ -66,7 +66,7 @@ V (bit 0): Valid bit. Set to 1 if the entry is valid.
 
 ### Part 1. `ptpages()` System Call (10 points)
 
-First, you must implement the `ptpages()` system call. Its system call number is assigned to 40 in `kernel/syscall.h`.
+First, you must implement the `ptpages()` system call. Its system call number is assigned to 41 in `kernel/syscall.h`.
 
 __NAME__
 
