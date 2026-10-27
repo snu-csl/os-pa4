@@ -1,6 +1,6 @@
 # 4190.307 Operating Systems (Fall 2026)
 # Project #4: `mmap()` with Huge Pages
-### Due: 11:59 PM, November 15 (Sunday)
+### Due: 11:59 PM, November 19 (Thursday)
 
 ## Introduction
 
